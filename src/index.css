@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=JetBrains+Mono:wght@400;500&family=Geist:wght@300;400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #111111;
+  
+  --color-surface: #ffffff;
+  --color-surface-dim: #f8f8f8;
+  --color-surface-bright: #ffffff;
+  
+  --color-surface-container-low: #f5f5f5;
+  --color-surface-container: #eeeeee;
+  
+  --color-on-surface: #111111;
+  --color-on-surface-variant: #666666;
+  
+  --color-primary: #e24534;
+  --color-on-primary: #ffffff;
+  
+  --color-outline: #e5e5e5;
+  --color-outline-variant: #f0f0f0;
+
+  --font-serif: "Newsreader", serif;
+  --font-sans: "Geist", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --spacing-section: 8rem;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight;
+  }
+}
+
+@layer utilities {
+  .label-caps {
+    @apply font-mono text-[10px] uppercase tracking-[0.2em] font-medium leading-none;
+  }
+  
+  .editorial-border {
+    @apply border-outline transition-colors duration-300;
+  }
+}

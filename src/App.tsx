@@ -204,7 +204,7 @@ export default function App() {
   );
 }
 
-function HomeScreen({ onNavigateWork }: { onNavigateWork: () => void }) {
+function HomeScreen({ onNavigateWork }: { onNavigateWork: () => void; key?: React.Key }) {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -251,8 +251,8 @@ function HomeScreen({ onNavigateWork }: { onNavigateWork: () => void }) {
 
       {/* Expertise */}
       <section className="py-12 border-t border-outline/50 grid grid-cols-1 md:grid-cols-12 gap-12">
-        <div className="md:col-span-4 lg:col-span-3">
-          <h2 className="text-4xl md:text-5xl sticky top-32">Background & Expertise</h2>
+        <div className="md:col-span-4 lg:col-span-3 sticky top-32 h-fit">
+          <h2 className="text-4xl md:text-5xl">Background & Expertise</h2>
           <p className="mt-4 text-on-surface-variant">A narrative of my technical focus and professional milestones.</p>
         </div>
         <div className="md:col-span-8 lg:col-span-8 lg:col-start-5 space-y-24">
@@ -289,7 +289,7 @@ function HomeScreen({ onNavigateWork }: { onNavigateWork: () => void }) {
   );
 }
 
-function WorkScreen({ onSelectProject }: { onSelectProject: (id: string) => void }) {
+function WorkScreen({ onSelectProject }: { onSelectProject: (id: string) => void; key?: React.Key }) {
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -361,7 +361,7 @@ function WorkScreen({ onSelectProject }: { onSelectProject: (id: string) => void
   );
 }
 
-function ContactScreen() {
+function ContactScreen({ key }: { key?: React.Key } = {}) {
   return (
     <motion.div 
       initial={{ opacity: 0, scale: 0.98 }}
@@ -422,7 +422,7 @@ function ContactScreen() {
   );
 }
 
-function ProjectDetailScreen({ projectId, onBack }: { projectId: string; onBack: () => void }) {
+function ProjectDetailScreen({ projectId, onBack }: { projectId: string; onBack: () => void; key?: React.Key }) {
   const project = PROJECTS.find(p => p.id === projectId);
 
   if (!project) return null;

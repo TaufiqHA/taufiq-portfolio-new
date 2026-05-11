@@ -1,6 +1,6 @@
-# Formly - Sistem Formulir Order Digital
+# Formly - Sistem Manajemen Formulir Digital
 
-**Formly** adalah aplikasi manajemen formulir order digital yang dirancang untuk memudahkan pelaku bisnis dalam mengumpulkan pesanan dan mengelola data pelanggan secara efisien. Aplikasi ini menggabungkan antarmuka pengguna yang modern dengan sistem backend yang tangguh.
+**Formly** adalah aplikasi manajemen formulir digital yang dirancang untuk memudahkan pelaku bisnis dalam mengumpulkan respon dan mengelola data pelanggan secara efisien. Aplikasi ini menggabungkan antarmuka pengguna yang modern dengan sistem backend yang tangguh.
 
 ## Teknologi Utama
 Aplikasi ini dikembangkan menggunakan stack teknologi modern untuk memastikan performa dan pengalaman pengguna yang optimal:
@@ -11,21 +11,21 @@ Aplikasi ini dikembangkan menggunakan stack teknologi modern untuk memastikan pe
 
 ### 1. Dashboard & Analitik
 - Pantau performa bisnis melalui ringkasan total respon, jumlah formulir aktif, dan rata-rata konversi.
-- Visualisasi tren pesanan menggunakan grafik interaktif untuk pengambilan keputusan yang lebih baik.
+- Visualisasi tren respon menggunakan grafik interaktif untuk pengambilan keputusan yang lebih baik.
 
 ### 2. Pembuat Formulir (Form Builder)
 - Antarmuka pembuatan formulir yang dinamis dan intuitif.
 - Berbagai tipe input tersedia: Teks, Paragraf, Dropdown, Checkbox, Radio, Email, No. HP, dan Alamat.
 - Kustomisasi field formulir sesuai dengan kebutuhan bisnis unik Anda.
 
-### 3. Manajemen Pesanan (Submissions)
-- Daftar pesanan yang masuk dengan fitur filter dan pencarian.
-- Detail pesanan yang lengkap untuk memudahkan proses pengolahan data.
-- Manajemen status pesanan (Baru, Dibaca, Selesai).
-- Fitur ekspor data pesanan.
+### 3. Manajemen Respon (Submissions)
+- Daftar respon yang masuk dengan fitur filter dan pencarian.
+- Detail data yang lengkap untuk memudahkan proses pengolahan data.
+- Manajemen status respon (Baru, Dibaca, Selesai).
+- Fitur ekspor data respon.
 
 ### 4. Integrasi WhatsApp
-- Konfigurasi WhatsApp API untuk pengiriman notifikasi otomatis setiap ada pesanan baru.
+- Konfigurasi WhatsApp API untuk pengiriman notifikasi otomatis setiap ada respon baru.
 - Kustomisasi template pesan WhatsApp untuk memberikan respon cepat kepada pelanggan.
 
 ### 5. UI/UX Modern & Responsif

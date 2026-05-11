@@ -24,10 +24,10 @@ const PROJECTS: Project[] = [
   {
     id: 'formly',
     title: 'FORMLY',
-    description: 'Digital order form management system with WhatsApp integration for business efficiency.',
+    description: 'Advanced form management system with WhatsApp integration for data collection efficiency.',
     imageUrl: `${import.meta.env.BASE_URL}image/formly.png`,
     tags: ['React.js', 'Laravel', 'Tailwind CSS 4'],
-    fullDescription: 'Formly is a digital order form management application designed to help businesses collect orders and manage customer data efficiently. It combines a modern user interface with a robust backend system, offering dynamic form building, analytical dashboards, and automated WhatsApp API integration.',
+    fullDescription: 'Formly is a comprehensive form management application designed to help businesses collect data and manage submissions efficiently. It combines a modern user interface with a robust backend system, offering dynamic form building, analytical dashboards, and automated WhatsApp API integration.',
     challenges: [
       'Developing a dynamic Form Builder with various input types and validation logic.',
       'Integrating WhatsApp API for automated notification delivery to customers.',
@@ -38,7 +38,7 @@ const PROJECTS: Project[] = [
       'Implemented a secure and stable REST API backend using Laravel.',
       'Created a responsive and modern design using Tailwind CSS 4 and smooth Motion animations.'
     ],
-    results: 'Significantly improved customer response times through automated notifications and simplified order management for business owners.',
+    results: 'Significantly improved customer response times through automated notifications and simplified submission management for business owners.',
     year: '2024',
     client: 'Internal Project / Showcase'
   }

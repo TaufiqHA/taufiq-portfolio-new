@@ -1,51 +1,81 @@
-# Planning: Professional Portfolio README Improvement
+# Planning: Responsive Design (Mobile & Tablet)
 
-This plan outlines the steps to transform the current `README.md` into a more professional, attractive, and accessible document, removing all references to Google AI Studio.
-
-## Goals
-1. **Remove AI Studio Branding:** Delete all links and mentions of Google AI Studio.
-2. **Professional Aesthetic:** Align the README with the "Architect of Digital Logic" theme found in the app.
-3. **Accessibility:** Ensure junior developers and AI models can easily understand and implement the project.
-4. **Information Density:** Provide a clear overview of features, tech stack, and setup instructions.
-
-## Proposed README Structure
-
-1. **Header:** High-quality banner (existing or improved) and a professional title.
-2. **Introduction:** A concise 1-2 sentence description of the portfolio's purpose.
-3. **Key Features:** Bullet points highlighting the "system architect" vibe (e.g., Performance-focused, Modular Design, Crystalline Geometry).
-4. **Tech Stack:** Categorized list of technologies (Frontend, Animation, Icons, Tools).
-5. **Getting Started:**
-   - Prerequisites (Node.js version).
-   - Step-by-step installation instructions.
-   - Environment variable setup (if still needed, specifically for any non-AI Studio components).
-6. **Project Structure:** Brief overview of where the core logic lives.
-7. **Commands:** List of available npm scripts.
-8. **License:** Mention the existing Apache-2.0 license.
-
-## Implementation Steps
-
-### Phase 1: Cleanup
-- Open `README.md`.
-- Remove the AI Studio banner if it's too generic (keep if it's high quality but rename or change context).
-- Delete the "View your app in AI Studio" link.
-- Remove the step for `GEMINI_API_KEY` if the current portfolio doesn't actually use it for its core display (based on `App.tsx`, it uses static data).
-
-### Phase 2: Content Enrichment
-- Add a new `#` title: `TAUFIQ_HA // Portfolio`.
-- Write the introduction based on the `App.tsx` tagline: "Crafting systems, not just websites."
-- List the tech stack: React 19, Vite, Tailwind CSS 4, Motion, Lucide React.
-- Detail the installation steps clearly.
-
-### Phase 3: Visual Polishing
-- Use Markdown badges for the tech stack to make it more "attractive."
-- Use code blocks with syntax highlighting.
-- Add a "License" section at the bottom.
-
-## For Junior Devs/AI Models
-- **Clarity:** Use simple, direct language.
-- **Consistency:** Ensure command names match `package.json` exactly.
-- **Context:** Briefly explain what each major folder (`src/`, `public/`) is for.
+## Goal
+Make all pages (Home, Work, Project Detail, Contact) fully responsive and visually polished on mobile and tablet devices.
 
 ---
 
-**Next Action:** I will proceed to update `README.md` following this plan.
+## Strategy (For Junior Dev/AI)
+
+### 1. Implement Mobile Navigation Menu
+Saat ini, menu navigasi disembunyikan di mobile. Kita perlu menambahkan "Hamburger Menu" atau "Overlay Menu" untuk mobile.
+
+**Langkah:**
+- Tambahkan state `isMenuOpen` menggunakan `useState` di komponen `Nav`.
+- Tambahkan tombol menu (ikon `Menu` dan `X` dari `lucide-react`) yang hanya muncul di `block md:hidden`.
+- Buat `AnimatePresence` untuk menampilkan menu overlay full-screen saat `isMenuOpen` bernilai true.
+
+### 2. Fluid Typography (Penyesuaian Ukuran Font)
+Beberapa teks sangat besar (seperti `text-8xl`). Kita harus memastikan ukurannya mengecil secara proporsional di layar kecil.
+
+**Langkah:**
+- Gunakan prefix responsif Tailwind secara konsisten:
+  - `text-4xl` (Mobile) -> `text-6xl` (Tablet) -> `text-8xl` (Desktop).
+- Periksa komponen `HomeScreen` (Hero section) dan `WorkScreen` (Header).
+
+### 3. Grid & Layout Refactoring
+Ubah tata letak kolom agar lebih fleksibel.
+
+**Langkah:**
+- **Hero Section:** Pastikan gambar portrait di `HomeScreen` berada di bawah teks saat mobile (`grid-cols-1`) dan di samping saat desktop (`md:col-span-5`).
+- **Expertise Section:** Di tablet, gunakan `grid-cols-1` atau perkecil gap agar tidak terlalu sempit.
+- **Project Detail:** Bagian Metadata (`aside`) harus pindah ke atas atau bawah konten utama pada mobile, bukan di samping.
+
+### 4. Spacing & Padding Adjustment
+Jarak antar section (`mt-32`, `py-24`) seringkali terlalu besar untuk layar handphone.
+
+**Langkah:**
+- Gunakan utility spacing yang bervariasi:
+  - Contoh: `py-12 md:py-24` atau `mt-16 md:mt-32`.
+- Pastikan `max-w-7xl` tetap memiliki padding samping yang cukup (`px-4` atau `px-6`).
+
+### 5. Interactive Elements (Touch Friendly)
+Pastikan semua tombol dan link mudah diklik dengan jari.
+
+**Langkah:**
+- Pastikan `min-h-[44px]` untuk elemen interaktif.
+- Hilangkan efek `hover` yang mengganggu di mobile (karena hover di mobile seringkali "lengket" setelah diklik). Gunakan `@media (hover: hover)`.
+
+---
+
+## Checklist Implementasi
+
+### [ ] Navigation (Nav)
+- [ ] Tombol Hamburger muncul di < 768px.
+- [ ] Menu overlay berfungsi dengan animasi halus.
+
+### [ ] Home Screen
+- [ ] Hero text tidak terpotong (overflow).
+- [ ] Grid "Technical Proficiency" rapi di mobile (1 kolom).
+
+### [ ] Work Screen
+- [ ] Card project memenuhi lebar layar dengan margin yang pas.
+- [ ] Ikon panah (`ArrowUpRight`) tidak bertabrakan dengan teks.
+
+### [ ] Project Detail
+- [ ] Gambar utama (aspect-video) terlihat bagus di mobile.
+- [ ] Tabel metadata berubah menjadi layout tumpuk (stacked).
+
+### [ ] Contact Screen
+- [ ] Form input tidak terlalu lebar.
+- [ ] Padding dalam box `TRANSMISSION_FORM` dikurangi untuk mobile.
+
+---
+
+## Cara Verifikasi
+1. Gunakan **Chrome DevTools** (F12).
+2. Aktifkan **Device Mode** (ikon HP/Tablet).
+3. Test pada resolusi:
+   - **Mobile:** 375px (iPhone SE/12)
+   - **Tablet:** 768px (iPad)
+   - **Desktop:** 1440px+

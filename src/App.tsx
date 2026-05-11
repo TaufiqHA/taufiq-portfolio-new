@@ -22,88 +22,25 @@ import { Page, Project } from './types.ts';
 
 const PROJECTS: Project[] = [
   {
-    id: 'neural-sync',
-    title: 'NEURAL_SYNC_OS',
-    description: 'A distributed operating system layer for machine learning workloads.',
-    imageUrl: 'https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=2000',
-    tags: ['Distributed Systems', 'MLOps', 'Go'],
-    fullDescription: 'NEURAL_SYNC_OS is a research-driven distributed operating system designed specifically to handle the volatile compute requirements of modern deep learning training clusters. It introduces a novel resource abstraction layer that treats heterogeneous GPUs as a unified compute fabric.',
+    id: 'formly',
+    title: 'FORMLY',
+    description: 'Digital order form management system with WhatsApp integration for business efficiency.',
+    imageUrl: `${import.meta.env.BASE_URL}image/formly.png`,
+    tags: ['React.js', 'Laravel', 'Tailwind CSS 4'],
+    fullDescription: 'Formly is a digital order form management application designed to help businesses collect orders and manage customer data efficiently. It combines a modern user interface with a robust backend system, offering dynamic form building, analytical dashboards, and automated WhatsApp API integration.',
     challenges: [
-      'Managing low-latency communication between non-coherent memory domains.',
-      'Developing a fail-safe scheduler for preemptible instance clusters.',
-      'Implementing real-time telemetry for multi-node gradient synchronization.'
+      'Developing a dynamic Form Builder with various input types and validation logic.',
+      'Integrating WhatsApp API for automated notification delivery to customers.',
+      'Ensuring high performance while handling large volumes of submission data.'
     ],
     solutions: [
-      'Engineered a custom RPC protocol in Go reducing overhead by 35%.',
-      'Implemented a tiered memory management system for efficient state transfer.',
-      'Created a visual debugger for cluster-wide bottleneck identification.'
+      'Utilized React.js with SPA architecture for fast, no-reload navigation.',
+      'Implemented a secure and stable REST API backend using Laravel.',
+      'Created a responsive and modern design using Tailwind CSS 4 and smooth Motion animations.'
     ],
-    results: 'Deployment saw a 22% increase in GPU utilization across a 128-node cluster, with a 15% reduction in overall training time for LLM-scale models.',
-    year: '2023',
-    client: 'Autonomous Systems Research'
-  },
-  {
-    id: 'kinetic-eng',
-    title: 'KINETIC_ENG',
-    description: 'High-performance physical simulation engine for industrial automation.',
-    imageUrl: 'https://images.unsplash.com/photo-1537467300446-37ca79b88d42?auto=format&fit=crop&q=80&w=2000',
-    tags: ['C++', 'Robotics', 'Physics'],
-    fullDescription: 'A deterministic physics engine designed for high-fidelity mechanical simulations. KINETIC_ENG enables engineers to stress-test robotic armatures in virtual environments with sub-millimeter precision before physical prototyping.',
-    challenges: [
-      'Achieving deterministic results across different CPU architectures.',
-      'Simulating complex multi-body constraints in real-time.',
-      'Integrating with legacy industrial automation CAD formats.'
-    ],
-    solutions: [
-      'Developed a SIMD-optimized constraint solver using C++20.',
-      'Implemented a spatial hashing algorithm for ultra-fast collision detection.',
-      'Created a plugin-based architecture for custom mechanical constraints.'
-    ],
-    results: 'Reduced physical prototype failures by 60% for a leading robotics firm, saving approximately $2.1M in hardware costs.',
-    year: '2022',
-    client: 'Precision Robotics Corp'
-  },
-  {
-    id: 'prism-ui',
-    title: 'PRISM_UI',
-    description: 'A design system architecture focusing on crystalline geometric primitives.',
-    imageUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=2000',
-    tags: ['Design Systems', 'React', 'Theming'],
-    fullDescription: 'PRISM_UI is not just a UI library, but an architectural framework for building mathematically-derived interfaces. It uses a custom constraint-based engine to generate layouts that are perfectly balanced across any viewport.',
-    challenges: [
-      'Creating a truly resolution-independent typography system.',
-      'Balancing extreme aesthetic minimalism with complex functional accessibility.',
-      'Managing dynamic theme generation based on ambient lighting data.'
-    ],
-    solutions: [
-      'Engineered a fluid-scaling engine using CSS custom properties and JS hooks.',
-      'Implemented a rigorous ARIA-driven component architecture.',
-      'Developed a crystalline geometry engine for generative background patterns.'
-    ],
-    results: 'Standardized UI development across 14 internal product teams, reducing design-to-code latency by 75%.',
-    year: '2022',
-    client: 'Lumina Digital'
-  },
-  {
-    id: 'infra-strata',
-    title: 'INFRA_STRATA',
-    description: 'Cloud infrastructure visualization tool for complex multi-region clusters.',
-    imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000',
-    tags: ['AWS', 'K8s', 'Data Viz'],
-    fullDescription: 'An interactive 3D map for cloud infrastructure. INFRA_STRATA translates abstract YAML configurations into a living, breathing digital twin of an entire organization\'s cloud ecosystem.',
-    challenges: [
-      'Visualizing over 5,000 active nodes without sacrificing browser performance.',
-      'Maintaining real-time synchronization with dynamic cloud state changes.',
-      'Designing intuitive interactions for navigating deep hierarchical structures.'
-    ],
-    solutions: [
-      'Utilized Three.js and WebGL for hardware-accelerated rendering.',
-      'Implemented a WebSocket-based delta sync for live infrastructure updates.',
-      'Created a "semantic zoom" system that adjusts detail based on camera distance.'
-    ],
-    results: 'Decreased average incident response time by 30% by allowing SREs to visually locate cluster bottlenecks in seconds.',
-    year: '2021',
-    client: 'CloudScale Global'
+    results: 'Significantly improved customer response times through automated notifications and simplified order management for business owners.',
+    year: '2024',
+    client: 'Internal Project / Showcase'
   }
 ];
 
@@ -485,7 +422,7 @@ function ProjectDetailScreen({ projectId, onBack }: { projectId: string; onBack:
         onClick={onBack}
         className="mt-6 md:mt-16 mb-6 md:mb-8 label-caps flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors cursor-pointer"
       >
-        <ArrowRight className="rotate-180" size={14} /> BACK_TO_WORKS
+        <ArrowRight className="rotate-180" size={14} /> BACK_TO_WORK
       </button>
 
       <header className="mb-8 md:mb-24 space-y-4 md:space-y-8">
@@ -511,7 +448,7 @@ function ProjectDetailScreen({ projectId, onBack }: { projectId: string; onBack:
       <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
         <aside className="md:col-span-4 space-y-10 md:space-y-12 order-last md:order-first">
           <div className="space-y-4">
-            <h3 className="label-caps text-primary">Metadata</h3>
+            <h3 className="label-caps text-primary">METADATA</h3>
             <div className="grid grid-cols-1 gap-6 md:gap-4 text-sm">
               <div>
                 <dt className="text-on-surface-variant font-mono text-[10px] uppercase mb-1">CLIENT</dt>
@@ -537,7 +474,7 @@ function ProjectDetailScreen({ projectId, onBack }: { projectId: string; onBack:
 
         <section className="md:col-span-8 space-y-16 md:space-y-24">
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl">Executive Summary</h2>
+            <h2 className="text-3xl md:text-4xl">EXECUTIVE SUMMARY</h2>
             <p className="text-lg md:text-xl text-on-surface-variant leading-relaxed font-light italic">
               {project.fullDescription}
             </p>
@@ -545,7 +482,7 @@ function ProjectDetailScreen({ projectId, onBack }: { projectId: string; onBack:
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
             <div className="space-y-6">
-              <h3 className="label-caps text-primary border-b border-outline/50 pb-2">The Challenges</h3>
+              <h3 className="label-caps text-primary border-b border-outline/50 pb-2">THE CHALLENGES</h3>
               <ul className="space-y-4">
                 {project.challenges?.map((c, i) => (
                   <li key={i} className="flex gap-4">
@@ -556,7 +493,7 @@ function ProjectDetailScreen({ projectId, onBack }: { projectId: string; onBack:
               </ul>
             </div>
             <div className="space-y-6">
-              <h3 className="label-caps text-primary border-b border-outline/50 pb-2">Technical Solutions</h3>
+              <h3 className="label-caps text-primary border-b border-outline/50 pb-2">TECHNICAL SOLUTIONS</h3>
               <ul className="space-y-4">
                 {project.solutions?.map((s, i) => (
                   <li key={i} className="flex gap-4">
@@ -569,7 +506,7 @@ function ProjectDetailScreen({ projectId, onBack }: { projectId: string; onBack:
           </div>
 
           <div className="bg-surface-dim p-6 md:p-12 border-l-4 border-primary">
-            <h3 className="label-caps text-primary mb-6">Outcome & Impact</h3>
+            <h3 className="label-caps text-primary mb-6">OUTCOME & IMPACT</h3>
             <p className="text-xl md:text-2xl font-serif leading-relaxed italic text-on-surface">
               "{project.results}"
             </p>
@@ -583,7 +520,7 @@ function ProjectDetailScreen({ projectId, onBack }: { projectId: string; onBack:
           onClick={onBack}
           className="px-6 py-4 md:px-12 md:py-6 bg-primary text-on-primary label-caps hover:brightness-110 transition-all active:scale-95"
         >
-          LET'S TALK ARCHITECTURE
+          LET'S DISCUSS ARCHITECTURE
         </button>
       </div>
     </motion.div>

@@ -1,81 +1,79 @@
-# Planning: Responsive Design (Mobile & Tablet)
+# Planning: English Localization (Formly Project)
 
 ## Goal
-Make all pages (Home, Work, Project Detail, Contact) fully responsive and visually polished on mobile and tablet devices.
+Translate all project data (descriptions, challenges, solutions, and results) for the **Formly** project in the "Work" and "Project Detail" screens into English to maintain a professional international portfolio aesthetic.
 
 ---
 
 ## Strategy (For Junior Dev/AI)
 
-### 1. Implement Mobile Navigation Menu
-Saat ini, menu navigasi disembunyikan di mobile. Kita perlu menambahkan "Hamburger Menu" atau "Overlay Menu" untuk mobile.
+### 1. Update Project Data in `src/App.tsx`
+Replace the values in the `PROJECTS` array with the following English translations.
 
-**Langkah:**
-- Tambahkan state `isMenuOpen` menggunakan `useState` di komponen `Nav`.
-- Tambahkan tombol menu (ikon `Menu` dan `X` dari `lucide-react`) yang hanya muncul di `block md:hidden`.
-- Buat `AnimatePresence` untuk menampilkan menu overlay full-screen saat `isMenuOpen` bernilai true.
+- **File:** `src/App.tsx`
+- **Action:** Replace the `formly` object block with the code below.
 
-### 2. Fluid Typography (Penyesuaian Ukuran Font)
-Beberapa teks sangat besar (seperti `text-8xl`). Kita harus memastikan ukurannya mengecil secara proporsional di layar kecil.
+**English Translation Block:**
+```typescript
+const PROJECTS: Project[] = [
+  {
+    id: 'formly',
+    title: 'FORMLY',
+    description: 'Digital order form management system with WhatsApp integration for business efficiency.',
+    imageUrl: `${import.meta.env.BASE_URL}image/formly.png`,
+    tags: ['React.js', 'Laravel', 'Tailwind CSS 4'],
+    fullDescription: 'Formly is a digital order form management application designed to help businesses collect orders and manage customer data efficiently. It combines a modern user interface with a robust backend system, offering dynamic form building, analytical dashboards, and automated WhatsApp API integration.',
+    challenges: [
+      'Developing a dynamic Form Builder with various input types and validation logic.',
+      'Integrating WhatsApp API for automated notification delivery to customers.',
+      'Ensuring high performance while handling large volumes of submission data.'
+    ],
+    solutions: [
+      'Utilized React.js with SPA architecture for fast, no-reload navigation.',
+      'Implemented a secure and stable REST API backend using Laravel.',
+      'Created a responsive and modern design using Tailwind CSS 4 and smooth Motion animations.'
+    ],
+    results: 'Significantly improved customer response times through automated notifications and simplified order management for business owners.',
+    year: '2024',
+    client: 'Internal Project / Showcase'
+  }
+];
+```
 
-**Langkah:**
-- Gunakan prefix responsif Tailwind secara konsisten:
-  - `text-4xl` (Mobile) -> `text-6xl` (Tablet) -> `text-8xl` (Desktop).
-- Periksa komponen `HomeScreen` (Hero section) dan `WorkScreen` (Header).
+### 2. Interface Labels Consistency
+Ensure that UI labels in the `ProjectDetailScreen` and `WorkScreen` components are also in English (these should already be English based on the initial codebase, but double-check).
 
-### 3. Grid & Layout Refactoring
-Ubah tata letak kolom agar lebih fleksibel.
-
-**Langkah:**
-- **Hero Section:** Pastikan gambar portrait di `HomeScreen` berada di bawah teks saat mobile (`grid-cols-1`) dan di samping saat desktop (`md:col-span-5`).
-- **Expertise Section:** Di tablet, gunakan `grid-cols-1` atau perkecil gap agar tidak terlalu sempit.
-- **Project Detail:** Bagian Metadata (`aside`) harus pindah ke atas atau bawah konten utama pada mobile, bukan di samping.
-
-### 4. Spacing & Padding Adjustment
-Jarak antar section (`mt-32`, `py-24`) seringkali terlalu besar untuk layar handphone.
-
-**Langkah:**
-- Gunakan utility spacing yang bervariasi:
-  - Contoh: `py-12 md:py-24` atau `mt-16 md:mt-32`.
-- Pastikan `max-w-7xl` tetap memiliki padding samping yang cukup (`px-4` atau `px-6`).
-
-### 5. Interactive Elements (Touch Friendly)
-Pastikan semua tombol dan link mudah diklik dengan jari.
-
-**Langkah:**
-- Pastikan `min-h-[44px]` untuk elemen interaktif.
-- Hilangkan efek `hover` yang mengganggu di mobile (karena hover di mobile seringkali "lengket" setelah diklik). Gunakan `@media (hover: hover)`.
+- **Verify Labels:**
+  - `METADATA`
+  - `CLIENT`
+  - `YEAR`
+  - `TECH_STACK`
+  - `EXECUTIVE SUMMARY`
+  - `THE CHALLENGES`
+  - `TECHNICAL SOLUTIONS`
+  - `OUTCOME & IMPACT`
 
 ---
 
 ## Checklist Implementasi
 
-### [ ] Navigation (Nav)
-- [ ] Tombol Hamburger muncul di < 768px.
-- [ ] Menu overlay berfungsi dengan animasi halus.
+### [ ] Project Content (src/App.tsx)
+- [ ] `description` translated to English.
+- [ ] `fullDescription` translated to English.
+- [ ] All `challenges` points translated to English.
+- [ ] All `solutions` points translated to English.
+- [ ] `results` translated to English.
+- [ ] `client` and `year` verified.
 
-### [ ] Home Screen
-- [ ] Hero text tidak terpotong (overflow).
-- [ ] Grid "Technical Proficiency" rapi di mobile (1 kolom).
-
-### [ ] Work Screen
-- [ ] Card project memenuhi lebar layar dengan margin yang pas.
-- [ ] Ikon panah (`ArrowUpRight`) tidak bertabrakan dengan teks.
-
-### [ ] Project Detail
-- [ ] Gambar utama (aspect-video) terlihat bagus di mobile.
-- [ ] Tabel metadata berubah menjadi layout tumpuk (stacked).
-
-### [ ] Contact Screen
-- [ ] Form input tidak terlalu lebar.
-- [ ] Padding dalam box `TRANSMISSION_FORM` dikurangi untuk mobile.
+### [ ] UI Verification
+- [ ] Check `WorkScreen` for English description.
+- [ ] Check `ProjectDetailScreen` for English content and headers.
 
 ---
 
-## Cara Verifikasi
-1. Gunakan **Chrome DevTools** (F12).
-2. Aktifkan **Device Mode** (ikon HP/Tablet).
-3. Test pada resolusi:
-   - **Mobile:** 375px (iPhone SE/12)
-   - **Tablet:** 768px (iPad)
-   - **Desktop:** 1440px+
+## How to Verify
+1. Run the project using `npm run dev`.
+2. Navigate to the **Work** page. Ensure the "FORMLY" card shows the English description.
+3. Click on the project to enter the **Detail** view.
+4. Verify that the Summary, Challenges, Solutions, and Outcome sections are all in professional English.
+5. Check for any leftover Indonesian words in the metadata or section headers.

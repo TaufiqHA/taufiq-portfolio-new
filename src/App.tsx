@@ -18,6 +18,7 @@ import {
   Menu,
   X
 } from 'lucide-react';
+import { ContactForm } from './components/ContactForm.tsx';
 import { Page, Project } from './types.ts';
 
 const PROJECTS: Project[] = [
@@ -172,7 +173,7 @@ export default function App() {
         <AnimatePresence mode="wait">
           {currentPage === 'home' && <HomeScreen key="home" onNavigateWork={() => setCurrentPage('work')} />}
           {currentPage === 'work' && <WorkScreen key="work" onSelectProject={handleNavigateToProject} />}
-          {currentPage === 'contact' && <ContactScreen key="contact" />}
+          {currentPage === 'contact' && <ContactForm key="contact" />}
           {currentPage === 'project-detail' && selectedProjectId && (
             <ProjectDetailScreen 
               key="detail" 
@@ -341,67 +342,6 @@ function WorkScreen({ onSelectProject }: { onSelectProject: (id: string) => void
           </div>
         ))}
       </section>
-    </motion.div>
-  );
-}
-
-function ContactScreen({ key }: { key?: React.Key } = {}) {
-  return (
-    <motion.div 
-      initial={{ opacity: 0, scale: 0.98 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 1.02 }}
-      className="max-w-7xl mx-auto px-4 md:px-6 min-h-full flex flex-col items-center justify-start md:justify-center py-16 md:py-24"
-    >
-      <div className="text-center mb-8 md:mb-16 space-y-4 md:space-y-6">
-        <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl leading-tight md:leading-none">Initiate Communication.</h1>
-        <p className="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto font-light leading-relaxed">
-          Whether you have a specific project in mind or want to discuss technical architectures, I am available for high-impact collaborations.
-        </p>
-      </div>
-
-      <div className="w-full max-w-2xl bg-surface-dim p-5 sm:p-8 md:p-12 border border-outline relative shadow-2xl">
-        <div className="absolute top-0 right-0 p-4 opacity-10 hidden md:block">
-          <Mail size={120} />
-        </div>
-        
-        <h2 className="label-caps text-primary mb-8 md:mb-12 flex items-center gap-2">
-          <span className="w-8 h-[1px] bg-primary"></span> TRANSMISSION_FORM
-        </h2>
-
-        <form className="space-y-6 md:space-y-12 relative z-10">
-          <div className="space-y-2 group">
-            <label className="label-caps text-on-surface-variant group-focus-within:text-primary transition-colors">NAME</label>
-            <input 
-              type="text" 
-              placeholder="E.G. ALAN TURING"
-              className="w-full bg-transparent border-b border-outline pb-4 focus:outline-none focus:border-primary font-serif text-lg md:text-2xl placeholder:text-on-surface-variant/20 transition-all"
-            />
-          </div>
-
-          <div className="space-y-2 group">
-            <label className="label-caps text-on-surface-variant group-focus-within:text-primary transition-colors">EMAIL_ADDRESS</label>
-            <input 
-              type="email" 
-              placeholder="E.G. ALAN@ENIGMA.TECH"
-              className="w-full bg-transparent border-b border-outline pb-4 focus:outline-none focus:border-primary font-serif text-lg md:text-2xl placeholder:text-on-surface-variant/20 transition-all"
-            />
-          </div>
-
-          <div className="space-y-2 group">
-            <label className="label-caps text-on-surface-variant group-focus-within:text-primary transition-colors">MESSAGE_BODY</label>
-            <textarea 
-              rows={4}
-              placeholder="DESCRIBE YOUR PROJECT OR ARCHITECTURE..."
-              className="w-full bg-transparent border-b border-outline pb-4 focus:outline-none focus:border-primary font-serif text-lg md:text-2xl placeholder:text-on-surface-variant/20 transition-all resize-none"
-            />
-          </div>
-
-          <button className="w-full bg-primary text-on-primary py-5 md:py-6 label-caps text-sm hover:brightness-110 active:scale-[0.99] transition-all flex justify-center items-center gap-2">
-            SEND_TRANSMISSION <ArrowRight size={16} />
-          </button>
-        </form>
-      </div>
     </motion.div>
   );
 }
